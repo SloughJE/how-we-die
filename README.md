@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
 # How We Die — Interactive Mortality Charts (1999–2023)
 
 This project builds an interactive set of charts to explore **underlying cause of death** in the United States by **age**, **sex**, and **time period**. 
