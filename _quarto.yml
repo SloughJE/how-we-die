@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Mortality Explorer"
+  favicon: "images/favicon.svg"
 
 format:
   html:
