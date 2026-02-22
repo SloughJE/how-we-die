@@ -1,0 +1,13 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Mortality Explorer"
+
+format:
+  html:
+    theme: flatly
+
+execute:
+  freeze: auto
