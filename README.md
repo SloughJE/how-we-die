@@ -1,11 +1,11 @@
-# How We Die — Interactive Mortality Charts (1999–2023)
+# How We Die: Interactive Mortality Charts (1999–2024)
 
 This project builds an interactive set of charts to explore **underlying cause of death** in the United States by **age**, **sex**, and **time period**. 
 The goal is to make it easy to answer questions like:
 
 -   Does the leading cause of death change across the lifespan?
 -   How do patterns differ for women vs men?
--   How have broad causes shifted over time (1999–2023)?
+-   How have broad causes shifted over time (1999–2024)?
 -   Within a broad cause (e.g., Cancer), which subcategories matter most at different ages or years?
 
 The visualization is designed for exploration: you can filter, isolate causes, zoom, and switch metrics.
@@ -29,7 +29,7 @@ Two linked charts:
 Two linked charts:
 
 3.  **Broad causes over time**\
-    Stacked areas show how the *composition* of deaths changes over calendar years (1999–2023), optionally filtered to an age range.
+    Stacked areas show how the *composition* of deaths changes over calendar years (1999–2024), optionally filtered to an age range.
 
 4.  **Detailed causes over time (drill-down)**\
     After selecting a broad cause, this chart shows subcategories within that cause over time.
