@@ -78,8 +78,9 @@ The **Normalize to 100%** button is available for *Share of deaths* mode.
 
 ### Mortality (deaths)
 
--   **CDC / NCHS NVSS mortality data (Underlying Cause of Death)**
--   ICD-10 underlying cause codes are used to classify each death into a cause group.
+- **CDC / NCHS NVSS mortality data (Underlying Cause of Death)**
+- ICD-10 underlying cause codes are used to classify each death into a cause group.
+- Deaths at ages above 100 are excluded. Deaths above 100 are rare, and including them would add a long, noisy tail and compress the main age range where most patterns live.
 
 ### Population denominators (for rates)
 
