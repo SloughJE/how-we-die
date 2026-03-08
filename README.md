@@ -81,6 +81,7 @@ The **Normalize to 100%** button is available for *Share of deaths* mode.
 - **CDC / NCHS NVSS mortality data (Underlying Cause of Death)**
 - ICD-10 underlying cause codes are used to classify each death into a cause group.
 - Deaths at ages above 100 are excluded. Deaths above 100 are rare, and including them would add a long, noisy tail and compress the main age range where most patterns live.
+- https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm#Downloadable
 
 ### Population denominators (for rates)
 
@@ -90,11 +91,13 @@ The **Normalize to 100%** button is available for *Share of deaths* mode.
 
 ## ICD codes
 
-An **ICD code** is a standardized diagnostic classification code from the **International Classification of Diseases (ICD)** maintained by the **World Health Organization (WHO)**. ICD provides a shared language for recording diseases, injuries, and causes of death so that health statistics can be compared over time and across places.
+An **ICD-10 code** is a standardized classification code from the **International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10)**, published by the **World Health Organization (WHO)**. 
+
+ICD-10 provides a common system for recording diseases, injuries, and causes of death so that health statistics can be compared over time and across places.
 
 ### ICD in this project
 
-This visualization uses **ICD-10** (the 10th revision of ICD).
+This visualization uses **ICD-10**.
 
 For mortality data, each death record is assigned an **underlying cause of death**: the single condition or event that initiated the chain of events leading directly to death. That underlying cause is recorded as an ICD-10 code (for example, broad “chapters” like circulatory diseases, or more specific codes for particular conditions).
 
