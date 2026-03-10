@@ -114,6 +114,7 @@ ICD labels are designed for clinical/statistical use, not for general audiences.
 This translation involves some subjective interpretation, because the ICD official wording can be unclear or unintuitive to non-specialists and because there is rarely a single right way to group codes for visualization.
 
 **Example (terminology translation):**  
+
 ICD uses terms like **“Diseases of the genitourinary system”** (ICD-10 N00–N99). “Genitourinary” is precise but not a common everyday word, 
 and it bundles conditions affecting both urinary and reproductive systems. 
 
@@ -165,7 +166,7 @@ COVID-19 is identified using **ICD-10 U07.1** and appears starting in 2020 in th
 
 -   **Underlying cause only**: each death is assigned one underlying cause. Contributing causes/comorbidities are not shown.
 -   **Crude rates**: mortality rates are crude (not age-standardized). Comparisons across time or countries can be influenced by differences in age structure.
--   **Older ages (85+)**: single-year population denominators are available at older ages in WONDER exports; rates are omitted for 85+. (may be updated at a later point with a different data source)
+-   **Mortality rates for older ages (85+)**: single-year population denominators at each age are available at ages in WONDER exports, but only up to age 85; after that population denominators are grouped into multiple years; 
+because of this, rates are omitted for 85+. (may be updated at a later point with a different data source)
 -   **Small counts and volatility**: rare causes (especially at younger ages) can vary substantially year-to-year. 
--   **Registration vs occurrence timing**: this project assumes the year variable is consistent within the derived dataset; if comparing to other sources, confirm whether the year is “year of death” vs “year of registration.”
 -   **Broad group definitions**: any ICD grouping involves judgment calls at boundaries and residual categories; the mapping is chosen for readability and stable interpretation.
