@@ -14,24 +14,25 @@ The visualization is designed for exploration: you can filter, isolate causes, z
 
 ## Charts Overview
 
-### Section 1: By age at death
+### Section 1: Overall rankings
 
-Two linked charts:
+1.  **Broad causes overall rankings**\
+    Bar chart shows the overall rankings of broad causes of death.
+    
+### Section 2: By age at death
 
-1.  **Broad causes at age of death**\
+2.  **Broad causes at age of death**\
     Stacked areas show how the *composition* of deaths changes from age 0 to 100.
 
-2.  **Detailed causes at age of death (drill-down)**\
+3.  **Detailed causes at age of death (drill-down)**\
     After selecting a broad cause, this chart shows how *subcategories within that broad cause* vary by age.
 
-### Section 2: By year
+### Section 3: By year
 
-Two linked charts:
+4.  **Broad causes over time**\
+    Stacked areas show how the *composition* of deaths changes over calendar years (1999–2024).
 
-3.  **Broad causes over time**\
-    Stacked areas show how the *composition* of deaths changes over calendar years (1999–2024), optionally filtered to an age range.
-
-4.  **Detailed causes over time (drill-down)**\
+5.  **Detailed causes over time (drill-down)**\
     After selecting a broad cause, this chart shows subcategories within that cause over time.
 
 ------------------------------------------------------------------------
