@@ -1,7 +1,6 @@
 # How We Die: Interactive Mortality Charts (1999–2024)
 
-This project builds an interactive set of charts to explore **underlying cause of death** in the United States by **age**, **sex**, and **time period**. 
-The goal is to make it easy to answer questions like:
+This project builds an interactive set of charts to explore **underlying cause of death** in the United States by **age**, **sex**, and **time period**. The goal is to make it easy to answer questions like:
 
 -   Does the leading cause of death change across the lifespan?
 -   How do patterns differ for women vs men?
@@ -9,6 +8,8 @@ The goal is to make it easy to answer questions like:
 -   Within a broad cause (e.g., Cancer), which subcategories matter most at different ages or years?
 
 The visualization is designed for exploration: you can filter, isolate causes, zoom, and switch metrics.
+
+**Viewing on a phone is not recommended.** These charts were designed for larger screens and have not been optimized for mobile or touch interaction.
 
 ------------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ The visualization is designed for exploration: you can filter, isolate causes, z
 
 1.  **Broad causes overall rankings**\
     Bar chart shows the overall rankings of broad causes of death.
-    
+
 ### Section 2: By age at death
 
 2.  **Broad causes at age of death**\
@@ -39,7 +40,7 @@ The visualization is designed for exploration: you can filter, isolate causes, z
 
 ## Metrics shown
 
-Each chart supports three metrics:
+The charts support three metrics:
 
 -   **Share of deaths**\
     Proportion of deaths at each x-value (age or year) attributed to each cause.
@@ -79,10 +80,10 @@ The **Normalize to 100%** button is available for *Share of deaths* mode.
 
 ### Mortality (deaths)
 
-- **CDC / NCHS NVSS mortality data (Underlying Cause of Death)**
-- ICD-10 underlying cause codes are used to classify each death into a cause group.
-- Deaths at ages above 100 are excluded. Deaths above 100 are rare, and including them would add a long, noisy tail and compress the main age range where most patterns live.
-- https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm#Downloadable
+-   **CDC / NCHS NVSS mortality data (Underlying Cause of Death)**
+-   ICD-10 underlying cause codes are used to classify each death into a cause group.
+-   Deaths at ages above 100 are excluded. Deaths above 100 are rare, and including them would add a long, noisy tail and compress the main age range where most patterns live.
+-   https://www.cdc.gov/nchs/data_access/vitalstatsonline.htm#Downloadable
 
 ### Population denominators (for rates)
 
@@ -92,7 +93,7 @@ The **Normalize to 100%** button is available for *Share of deaths* mode.
 
 ## ICD codes
 
-An **ICD-10 code** is a standardized classification code from the **International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10)**, published by the **World Health Organization (WHO)**. 
+An **ICD-10 code** is a standardized classification code from the **International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10)**, published by the **World Health Organization (WHO)**.
 
 ICD-10 provides a common system for recording diseases, injuries, and causes of death so that health statistics can be compared over time and across places.
 
@@ -104,9 +105,9 @@ For mortality data, each death record is assigned an **underlying cause of death
 
 Using ICD codes allows the analysis to:
 
-- group deaths into consistent cause categories
-- keep definitions stable across years
-- support comparisons by age, sex, and (in future work) across countries that also use ICD-10 for mortality coding
+-   group deaths into consistent cause categories
+-   keep definitions stable across years
+-   support comparisons by age, sex, and (in future work) across countries that also use ICD-10 for mortality coding
 
 ### Translating ICD into user-friendly categories
 
@@ -114,48 +115,42 @@ ICD labels are designed for clinical/statistical use, not for general audiences.
 
 This translation involves some subjective interpretation, because the ICD official wording can be unclear or unintuitive to non-specialists and because there is rarely a single right way to group codes for visualization.
 
-**Example (terminology translation):**  
+**Example (terminology translation):**
 
-ICD uses terms like **“Diseases of the genitourinary system”** (ICD-10 N00–N99). “Genitourinary” is precise but not a common everyday word, 
-and it bundles conditions affecting both urinary and reproductive systems. 
+ICD uses terms like **“Diseases of the genitourinary system”** (ICD-10 N00–N99). “Genitourinary” is precise but not a common everyday word, and it bundles conditions affecting both urinary and reproductive systems.
 
-In the visualization, this broad cause is labeled **“Kidneys & urinary”** to make the category understandable to most users, 
-while still mapping back to the same underlying ICD-10 code range in the code.
+In the visualization, this broad cause is labeled **“Kidneys & urinary”** to make the category understandable to most users, while still mapping back to the same underlying ICD-10 code range in the code.
 
 ### Adjustments to improve interpretability (category placement)
 
 ICD’s structure is not always aligned with how people think about causes of death. In a few cases, categories were placed to improve interpretability and to match common public-health reporting conventions.
 
-**Example (Alzheimer’s / dementia):**  
-Alzheimer’s disease and related dementias appear across ICD codes that can sit in different parts of the ICD hierarchy (e.g., Alzheimer’s disease is coded in the nervous system chapter, while dementia codes can appear elsewhere). For readability, 
-the visualization treats **“Dementia & Alzheimer’s”** as a distinct broad cause so users can see these patterns clearly without needing to understand ICD chapter boundaries.
+**Example (Alzheimer’s / dementia):**\
+Alzheimer’s disease and related dementias appear across ICD codes that can sit in different parts of the ICD hierarchy (e.g., Alzheimer’s disease is coded in the nervous system chapter, while dementia codes can appear elsewhere). For readability, the visualization treats **“Dementia & Alzheimer’s”** as a distinct broad cause so users can see these patterns clearly without needing to understand ICD chapter boundaries.
 
-These kinds of decisions are documented in the project code (mapping tables / ranges). The intent is not to redefine ICD, but to create categories that are easier to interpret while remaining faithful to the underlying codes.
+These kinds of decisions are documented in the project code (mapping tables / ranges). The intent is to create categories that are easier to interpret while remaining faithful to the underlying codes.
 
 ## ICD mapping approach
 
-ICD-10 already has a hierarchy (chapters → blocks → categories), 
-but the raw codes (and even many official tabulation lists) still produce **too many distinct causes** for an interactive stacked-area chart. 
-Showing dozens to hundreds of categories at once becomes visually overwhelming, and many causes would be too small to interpret.
+ICD-10 already has a hierarchy (chapters → blocks → categories), but the raw codes (and even many official tabulation lists) still produce **too many distinct causes** for an interactive stacked-area chart. Showing dozens to hundreds of categories at once becomes visually overwhelming, and many causes would be too small to interpret.
 
 Mapping ICD-10 into a smaller set of **broad causes** and **readable subcategories** makes the visualization:
 
-- readable at a glance (a manageable number of layers)
-- stable across time (consistent definitions across years)
-- comparable across sex/age slices without hundreds of categories
+-   readable at a glance (a manageable number of layers)
+-   stable across time (consistent definitions across years)
+-   comparable across sex/age slices without hundreds of categories
 
 ### What the mapping does
 
-- **Broad causes** are defined as ranges of ICD-10 codes (e.g., circulatory, cancer, respiratory).
-- **Detailed causes** are subcategories nested within each broad cause (still based on ICD-10 underlying cause).
+-   **Broad causes** are defined as ranges of ICD-10 codes (e.g., circulatory, cancer, respiratory).
+-   **Detailed causes** are subcategories nested within each broad cause (still based on ICD-10 underlying cause).
 
 In order to avoid presenting too many categories at once:
 
-- smaller/rarer causes are sometimes grouped into broader buckets (including a residual “other” category)
-- grouping decisions are informed by the **amount of data** (so categories shown are meaningful on the chart), and by **conceptual similarity** (grouping related conditions together)
+-   smaller/rarer causes are sometimes grouped into broader buckets (including a residual “other” category)
+-   grouping decisions are informed by the **amount of data** (so categories shown are meaningful on the chart), and by **conceptual similarity** (grouping related conditions together)
 
-These choices involve some subjective judgment about how many categories to show and where to draw boundaries, 
-but the guiding principle is to keep the chart interpretable while staying faithful to ICD-based definitions.
+These choices involve some subjective judgment about how many categories to show and where to draw boundaries, but the guiding principle is to keep the chart interpretable while staying faithful to ICD-based definitions.
 
 ### COVID-19
 
@@ -167,7 +162,6 @@ COVID-19 is identified using **ICD-10 U07.1** and appears starting in 2020 in th
 
 -   **Underlying cause only**: each death is assigned one underlying cause. Contributing causes/comorbidities are not shown.
 -   **Crude rates**: mortality rates are crude (not age-standardized). Comparisons across time or countries can be influenced by differences in age structure.
--   **Mortality rates for older ages (85+)**: single-year population denominators at each age are available at ages in WONDER exports, but only up to age 85; after that population denominators are grouped into multiple years; 
-because of this, rates are omitted for 85+. (may be updated at a later point with a different data source)
--   **Small counts and volatility**: rare causes (especially at younger ages) can vary substantially year-to-year. 
+-   **Mortality rates for older ages (85+)**: single-year population denominators at each age are available at ages in WONDER exports, but only up to age 85; after that population denominators are grouped into multiple years; because of this, rates are omitted for 85+. (may be updated at a later point with a different data source)
+-   **Small counts and volatility**: rare causes (especially at younger ages) can vary substantially year-to-year.
 -   **Broad group definitions**: any ICD grouping involves judgment calls at boundaries and residual categories; the mapping is chosen for readability and stable interpretation.
